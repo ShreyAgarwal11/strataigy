@@ -91,18 +91,16 @@ export default function Example() {
       datalabels: {
         // Display data point values on the chart
         align: 'top' as const,  // Ensure it's treated as a valid string literal type
-        anchor: 'end',
+        anchor: 'end' as 'end', // Explicitly specify a valid value for anchor
         color: 'rgb(75, 192, 192)',
-        font: {
-          weight: 'bold',
-          size: 12,
-        },
         formatter: function (value: number) {
           return value.toString(); // Display value at data point
         },
       },
     },
-  };
+  }
+  
+  
   
   
 

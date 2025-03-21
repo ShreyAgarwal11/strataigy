@@ -262,7 +262,7 @@ export default function Example() {
             {/* Content Section Below Chart */}
             <div className="mt-6 bg-white p-6 shadow-lg rounded-lg">
               {!showInsights ? (
-                <p className="text-center text-gray-500">Click below to generate real-time insights</p>
+                <p className="text-center text-gray-500">Click above to generate real-time insights</p>
               ) : (
                 <div className="text-gray-500 space-y-4">
                   <p className="text-lg font-medium">

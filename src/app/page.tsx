@@ -84,13 +84,13 @@ export default function Example() {
         // Tooltip customizations (optional)
         callbacks: {
           label: function (context: any) {
-            return `${context.dataset.label}: ${context.raw}` // Customize tooltip label
+            return `${context.dataset.label}: ${context.raw}`; // Customize tooltip label
           },
         },
       },
       datalabels: {
         // Display data point values on the chart
-        align: 'top',  // Ensure a valid value here like 'top', 'bottom', 'center'
+        align: 'top' as const,  // Ensure it's treated as a valid string literal type
         anchor: 'end',
         color: 'rgb(75, 192, 192)',
         font: {
@@ -98,11 +98,12 @@ export default function Example() {
           size: 12,
         },
         formatter: function (value: number) {
-          return value.toString() // Display value at data point
+          return value.toString(); // Display value at data point
         },
       },
     },
-  }
+  };
+  
   
 
   return (

@@ -49,14 +49,14 @@ export default function SalesPredictionChart() {
         setChartData({
           labels: dates,
           datasets: [
-            // {
-            //   label: 'Actual Sales',
-            //   data: actualSales,
-            //   borderColor: '#4c51bf',
-            //   borderWidth: 2,
-            //   fill: false,
-            //   tension: 0.1,
-            // },
+            {
+              label: 'Actual Sales',
+              data: actualSales,
+              borderColor: '#4c51bf',
+              borderWidth: 2,
+              fill: false,
+              tension: 0.1,
+            },
             {
               label: 'Predicted Sales',
               data: predictedSales,

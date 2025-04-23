@@ -9,8 +9,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 
 interface SalesData {
   Date: string | number; // Allow both string or number for date format
-  Predicted: number;
-  Actual: number;
+  Predicted_Sales: number;
 }
 
 export default function SalesPredictionChart() {
@@ -19,7 +18,7 @@ export default function SalesPredictionChart() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch('/sales_predictions.xlsx');
+        const response = await fetch('/future_sales_predictions.csv');
         const arrayBuffer = await response.arrayBuffer();
         const workbook = XLSX.read(arrayBuffer, { type: 'array' });
         const sheet = workbook.Sheets[workbook.SheetNames[0]]; // Get the first sheet
@@ -43,28 +42,18 @@ export default function SalesPredictionChart() {
           return dateString;
         });
 
-        const actualSales = jsonData.map(d => d.Actual);
-        const predictedSales = jsonData.map(d => d.Predicted);
+        const predictedSales = jsonData.map(d => d.Predicted_Sales);
 
         setChartData({
           labels: dates,
           datasets: [
-            {
-              label: 'Actual Sales',
-              data: actualSales,
-              borderColor: '#4c51bf',
-              borderWidth: 2,
-              fill: false,
-              tension: 0.1,
-            },
             {
               label: 'Predicted Sales',
               data: predictedSales,
               borderColor: '#e53e3e',
               borderWidth: 2,
               fill: false,
-              tension: 0.1,
-              borderDash: [5, 5],
+              tension: 0
             },
           ],
         });
